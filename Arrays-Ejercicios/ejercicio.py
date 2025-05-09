@@ -1,5 +1,5 @@
 from listas_personas import nombres as lista_nombres
-from listas_personas import country, telefonos, postalZip, mails, edades
+from listas_personas import country, telefonos, postalZip, mails, edades, address, region
 
 
 """
@@ -209,77 +209,111 @@ que le permita acceder a los datos relevados.
 
 """ 2-Listar los datos de los usuarios de México """
 
-# def usuarios_mexicanos(nombres: list, country: list)->str:
-#     users_mexico = []
+def usuarios_mexicanos(nombres: list)->list:
+    users_mexico = []
 
-#     for i in range(len(nombres)):
-#         if country[i] == "Mexico":
-#             users_mexico += [nombres[i], country[i]]
+    for i in range(len(nombres)):
+        if country[i] == "Mexico":
+            users_mexico += [nombres[i], country[i]]
 
-#     return users_mexico
+    return users_mexico
 
 # print(usuarios_mexicanos(lista_nombres, country))
 
 """ 3-Listar los nombre, mail y teléfono de los usuarios de Brasil """
 
-# def usuarios_brasil(country: list)->list:
-#     users_brasil = []
+def usuarios_brasil(country: list)->list:
+    users_brasil = []
 
-#     for i in range(len(country)):
-#         if country[i] == "Brazil":
-#             users_brasil += [lista_nombres[i], country[i], telefonos[i], mails[i]]
+    for i in range(len(country)):
+        if country[i] == "Brazil":
+            users_brasil += [lista_nombres[i], country[i], telefonos[i], mails[i]]
 
 
-#     return users_brasil
+    return users_brasil
 
 # print(usuarios_brasil(country))
 
 """ 4-Listar los datos del/los usuario/s más joven/es """
 
-# def usuarios_jovenes(edad: list)->list:
-#     users_jovenes = []
+def usuarios_jovenes(edad: list)->list:
+    users_jovenes = []
 
-#     for i in range(len(edad)):
-#         if edad[0] >= edad[i]:
-#             users_jovenes += [lista_nombres[i], edad[i]]
+    for i in range(len(edad)):
+        if edad[0] >= edad[i]:
+            users_jovenes += [lista_nombres[i], edad[i]]
 
-#     return users_jovenes
+    return users_jovenes
 
 # print(usuarios_jovenes(edades))
 
 """ 5-Obtener un promedio de edad de los usuarios """
 
-# def promedio_edades(edad: list)->int:
-#     promedio = 0
+def promedio_edades(edad: list)->int:
+    promedio = 0
 
-#     for i in range(len(edad)):
-#         promedio += int(edad[i])
+    for i in range(len(edad)):
+        promedio += int(edad[i])
 
 
-#     promedio = promedio/len(edad)
+    promedio = promedio/len(edad)
 
-#     return int(promedio)
+    return int(promedio)
 
 
 # print(promedio_edades(edades))
 
 """ 6-De los usuarios de Brasil, listar los datos del usuario de mayor edad """
 
-# def edad_mayor_br(edades: list) -> int:
-#     edad_mayor = -1
+def edad_mayor_br(edades: list)-> int:
+    edad_mayor = 1
+    mayor_lista = []
 
-#     for i in range(len(country)):
-#         if country[i] == "Brazil" and edades[i] > edad_mayor:
-#             edad_mayor = edades[i]
-
-#     return edad_mayor
+    for i in range(len(edades)):
+        if country[i] == "Brazil" and edades[i] >= edad_mayor:
+            edad_mayor = edades[i]
+            mayor_lista += [lista_nombres[i], edad_mayor]
+    return mayor_lista
 
 # print(edad_mayor_br(edades))
 
 
-""" 7-Listar los datos de los usuarios de México y Brasil cuyo código postal  """
+""" Listar los datos de los usuarios de México y Brasil cuyo código postal sea mayor a 8000  """
 
 
+def datos_mx_br(country: list)->list:
+    datos_list_mexico = []
 
 
+    for i in range(len(country)):
+        if country[i] == "Mexico" or country[i] == "Brazil" and (postalZip[i] >= 8000):
+            datos_list_mexico += [lista_nombres[i], telefonos[i], mails[i], address[i], postalZip[i], region[i], country[i], edades[i]]
 
+    return datos_list_mexico
+
+# print(datos_mx_br(country))
+
+
+""" 8-Listar nombre, mail y teléfono de los usuarios italianos mayores a 40 años. """
+
+
+def listar_italianos(lista: list)->list:
+    datos_italianos = []
+
+    for i in range(len(lista)):
+        if country[i] == "Italy" and edades[i] >= 40:
+            datos_italianos += [lista_nombres[i], mails[i], telefonos[i]]
+
+    return datos_italianos
+
+
+# print(listar_italianos(country))
+
+
+def lineas_hori(tipo: str, cant: int):
+    lineas = ""
+
+    for i in range(cant*3):
+        lineas += tipo 
+
+    print(lineas)
