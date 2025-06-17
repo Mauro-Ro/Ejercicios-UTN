@@ -2,9 +2,10 @@ from funcionesmenu import alta_producto, baja_producto, modificar_producto
 
 
 gondola = [
-          [[None, 0], ["botellas", 3], ["None", 0], ["frascos", 8], ["None", 0]],
-          [["None", 0], ["None", 0], ["fideos", 4], ["None", 0], ["None", 0]],
-          [["choclo", 2], ["None", 0], ["None", 0], ["leche", 6], ["None", 0]]]
+          [[None, 0], ["botellas", 3], [None, 0], ["frascos", 8], [None, 0]],
+          [[None, 0], [None, 0], ["fideos", 4], [None, 0], [None, 0]],
+          [["choclo", 2], [None, 0], [None, 0], ["leche", 6], [None, 0]]                        
+          ]
 
 
 
